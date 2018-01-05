@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<script src="jquery.min.js"></script>
+<script>
+function submitReferral(urlValue) 
+{
+   var data="hello";
+   $.get("http://localhost:8080/tracker?url"+"=" + urlValue, function(response) {
+        data = response;
+        alert(response);
+   }).error(function(){
+  alert("Sorry could not proceed");
+});
+
+   return data;
+}
+</script>
+
+<style>
+h1 {
+    background-color: #00FFFF;
+    text-align: center;
+}
+
+div {
+    background-color: lightblue;
+}
+
+p {
+    background-color: #001122;
+    text-align: center;
+    height:30px;
+    vertical-align: middle;
+    color:white;
+}
+
+.button {
+    background-color: #BCBF50; /* Green #4CAF50*/
+    border: none;
+    color: white;
+    padding: 25px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
+</HEAD>
+<BODY>
+<h1>Referral Page</h1>
+<div>
+<input class=button type="button" name="google" value="refer from google  " onclick="return submitReferral('http://google.com')">
+<BR>
+<input class=button type="button" name="youtube" value="refer from youtube" onclick="return submitReferral('http://youtube.com')">
+<BR>
+<input class=button type="button" name="twitter" value="refer from twitter    " onclick="return submitReferral('http://twitter.com')">
+<BR>
+<input class=button type="button" name="twitter" value="refer from page1   " onclick="return submitReferral('http://test1.com')">
+<BR>
+<input class=button type="button" name="twitter" value="refer from page2   " onclick="return submitReferral('http://test2.com')">
+</div>
+<p>CopyRight @2018</p>
+
+
+</BODY>
+</HTML>
